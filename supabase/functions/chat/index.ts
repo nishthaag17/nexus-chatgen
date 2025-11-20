@@ -1,9 +1,9 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+const supabase = createClient(
+  Deno.env.get("https://gvidtqvgvvvbkmkxtzyw.supabase.co")!,
+  Deno.env.get("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd2aWR0cXZndnZ2Ymtta3h0enl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1NjU0NjYsImV4cCI6MjA3OTE0MTQ2Nn0.MB4cQBhieqIFrKNJuK1Ep8xmkGmQit5_KFSPNvFw44I")!
+);
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
